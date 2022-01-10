@@ -1,0 +1,119 @@
+* {         /* 기본값 설정 */
+    list-style : none;
+    text-decoration : none;
+    border-collapse: collapse;
+    margin : 0px;
+    padding : 0px; 
+    color : #000;
+    font-family: 'Noto Sans KR', sans-serif;       /* 구글 폰트 사용 */
+  }
+  
+  .intro_bg {           /* 홈페이지 배경화면 */
+    width: 1920px;
+    height:718px;
+    background-image : url("../images/intro.png");      /* 이미지 파일과 같은 위치에 있어야 함 */
+  }
+  
+  h1 {   
+    font-size : 48px;
+    font-weight: 100;
+  }
+  
+  .h3_size {
+    font-size : 24px;
+  }
+  
+  .h4.size {
+    font-size : 20px;
+    font-weight: lighter;
+  }
+  
+  .header {             /* 상단 헤더 부분 */
+    display : flex;     /* 자식 요소인 'searchArea' 와 'nav' 가로 배치 */
+    width : 1280px;
+    height : 86px;
+    margin : auto;      /* 헤더 부분 가운데 정렬 */
+   
+  }
+  
+  .searchArea {
+    width : 300px;
+    height : 40px;  
+    background-color : rgb(0, 0, 0, 0.5);         /* 검은색 투명도 50% */
+    border-radius: 5px; 
+    margin-top : 24px;   
+  }
+  
+  .search_area > form > input {
+    border : none;         /* 경계선 제거 -> 검색창 안에 '검색' 글자가 있는 것처럼 눈속임 */
+    width : 250px;
+    height : 40px;
+    background : rgba(0, 0, 0, 0.0);
+    color : white;       /* 검색창에 쓰는 글자색 */
+    padding-left : 10px;   /* 검색창과 글자 사이 간격 */
+  }
+  
+  .search_area > form > span {
+    width : 50px;          /* searchArea 구역의 총 길이 : 300px, 입력창 길이가 250px -> 나머지 50px */
+    color : #fff;
+    font-weight : bold;
+    cursor: pointer;       /* 커서 갖다대면 포인터 표시 */
+  }
+  
+  .nav {
+    display : flex;        /* 자식 요소인 HOME~CONTACT 가로 배치 */
+    justify-content: flex-end;        /* 요소들을 오른쪽 끝으로 이동 */
+    width : calc(1280px - 300px);     /* 전체 화면 가로 길이 - 검색창 구역 길이 */
+    line-height : 86px;               /* 헤더 높이와 동일하게 설정 -> 가운데 정렬 (상하) */
+  }
+  
+  .nav > li {             /* 그냥 .nav 로만 하면 내부의 자식 요소들한테 영향 x */
+    margin-left : 84px;   /* 요소들 (HOME ~ CONTACT) 간의 간격 지정 */
+  }
+  
+  .nav > li > a {
+    color : white;      /* HOME ~ CONTACT 글자 색 지정 */
+  }
+  
+  .intro_text {
+    width : 100%;
+    margin : 231px auto 251px auto;     /* 헤더부분과의 간격 지정 (상 우 하 좌 순서대로) */
+    text-align: center;   /* 글자 가운데 정렬 */
+  }
+  
+  .intro_text > h1,       /* 글자색은 태그 정확히 지정해줘야 적용됨 */
+  .intro_text > h4 {       
+    color : #fff;
+  }
+  
+  .intro_text > h4 {
+    font-size : 20px;
+  }
+  
+  .amount {               /* 하단의 목록 4개 */
+    position : relative;  /* 현재 있던 위치에서 절반만큼 걸쳐 있어야 하니까 */
+    top : -66px;          /* 하단 목록 구역 높이 / 2 = 66px */
+    display : flex;       /* 가로 정렬 */
+    width : 1280px;
+    height : 132px;
+    margin : auto;        /* 하단 목록 구역 가운데 정렬 (좌우) */
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);         /* 하단 목록 구역 그림자 지정 (우측/하단/흐린 정도) */ 
+  }
+  
+  .amount > li {
+    flex : 1;             /* 자식요소들 1:1 맞춤 지정 */
+    height : 132px;
+    justify-content: 132px;
+  }
+  
+  .amount > li > div {
+    text-align : center;  /* 문구 가운데 정렬 */
+    background-color: white;
+    height : 57px;
+    margin-top : 37px;    /* 하단 목록 구역의 윗선과의 간격 지정*/
+  }
+  
+  .amount > li:not(:last-child) > div {       /* 하단 목록 중 맨 마지막 구역 제외 */
+    border-right : 1px solid #e1e1e1;       /* 각 구역의 오른쪽마다 회색선 (구분선) 지정 */
+  }
