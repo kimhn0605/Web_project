@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from myapp.views import *
 
 urlpatterns = [
@@ -13,5 +13,6 @@ urlpatterns = [
     
     path('share/', share, name="share"),
     path('mypage/', mypage, name="mypage"),
+    path('signup/', signup, name="signup"),
     
 ]
