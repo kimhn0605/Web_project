@@ -49,6 +49,7 @@ def signup(request):          # 회원가입 페이지를 보여주기str위한H
                 email = email,
             )
             fuser.save()
+            return render(request, 'home.html')
         return render(request, 'signup.html', res_data) # signup 을 요청받으면 signup.html 로 응답
 
 def login(request): # 로그인
