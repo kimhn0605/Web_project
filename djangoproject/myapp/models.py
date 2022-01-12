@@ -20,4 +20,4 @@ class Fuser(models.Model):
     class Meta:
         db_table = 'signup_users' #테이블 명 지정
         verbose_name = 'Signup_table' # 노출될 테이블 이름 변경
-        verbose_name_plural = '사용자 모임'
+        verbose_name_plural = '회원정보'

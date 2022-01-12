@@ -2,7 +2,6 @@ from django.contrib import admin
 from django.urls import path
 from myapp.views import *
 from django.conf.urls import include
-from myapp.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -13,6 +12,7 @@ urlpatterns = [
     path('mypage/', mypage, name="mypage"),
     path('signup/', signup, name="signup"),
     path('login/', login),
+    path('login/home/', home_login, name="home_login"),
     path('logout/', logout),
 
 ]

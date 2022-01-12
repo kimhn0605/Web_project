@@ -8,6 +8,9 @@ from .models import Fuser
 def home(request):
     return render(request, 'home.html')
 
+def home_login(request) :
+    return render(request, 'home_login.html')
+
 def about(request):
     return render(request, 'about.html')
 
@@ -70,7 +73,7 @@ def login(request): # 로그인
                 request.session['user'] = myuser.id 
                 #세션도 딕셔너리 변수 사용과 똑같이 사용하면 된다.
                 #세션 user라는 key에 방금 로그인한 id를 저장한것.
-                return redirect('/')
+                return render(request, 'home_login.html')
             else:
                 response_data['error'] = "아이디 혹은 비밀번호가 일치하지 않습니다."
 
