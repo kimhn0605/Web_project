@@ -11,8 +11,8 @@ urlpatterns = [
     path('share/', share, name="share"),
     path('mypage/', mypage, name="mypage"),
     path('signup/', signup, name="signup"),
-    path('login/', login),
-    path('login/home/', home_login, name="home_login"),
+    path('login/', login, name="login"),
+    path('login/home', home_login, name="home_login"),
     path('logout/', logout),
 
 ]
