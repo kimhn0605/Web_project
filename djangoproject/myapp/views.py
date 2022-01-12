@@ -1,5 +1,7 @@
-from django.shortcuts import render
-from django.contrib.auth.hashers import make_password
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.contrib.auth.hashers import make_password, check_password
+from django.contrib import auth
 from .models import Fuser
 # Create your views here.
 
@@ -45,3 +47,51 @@ def signup(request):          # 회원가입 페이지를 보여주기str위한H
             )
             fuser.save()
         return render(request, 'signup.html', res_data) # signup 을 요청받으면 signup.html 로 응답
+
+def login(request): # 로그인
+    
+    response_data = {}
+
+    if request.method == "GET" :
+        return render(request, 'login.html')
+
+    elif request.method == "POST":
+        login_username = request.POST.get('username', None)
+        login_password = request.POST.get('password', None)
+
+
+        if not (login_username and login_password):
+            response_data['error']="아이디와 비밀번호를 모두 입력해주세요."
+        #elif(login_username이 db에 없다면): response_data['error'] = "회원가입이 필요합니다." <--을 쓰거나 아니면 그냥 정보 틀렸다고만 나오고, 궁금하면 회원이 알아서 회원가입 하도록?
+        else : 
+            myuser = Fuser.objects.get(username=login_username) 
+            #db에서 꺼내는 명령. Post로 받아온 username으로 , db의 username을 꺼내온다.
+            if check_password(login_password, myuser.password):
+                request.session['user'] = myuser.id 
+                #세션도 딕셔너리 변수 사용과 똑같이 사용하면 된다.
+                #세션 user라는 key에 방금 로그인한 id를 저장한것.
+                return redirect('/')
+            else:
+                response_data['error'] = "아이디 혹은 비밀번호가 일치하지 않습니다."
+
+        return render(request, 'login.html',response_data)
+        '''
+    if request.method == "GET" :
+        return render(request, 'login.html')
+
+    elif request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = auth.authenticate(request, username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect('home')
+        else:
+            return render(request, 'login.html', {'error': '아이디 혹은 비밀번호가 일치하지 않습니다.'})
+    else:
+        return render(request, 'login.html')'''
+
+    
+def logout(request):
+    request.session.pop('user')
+    return redirect('/')
