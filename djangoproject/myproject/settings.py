@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp.apps.MyappConfig',
+    'communityapp.apps.CommunityappConfig',
+    'tipsapp.apps.TipsappConfig',
+    'mypageapp.apps.MypageappConfig',
+    'shareapp.apps.ShareappConfig',
 ]
 
 MIDDLEWARE = [
