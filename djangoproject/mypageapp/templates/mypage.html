@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>MYPAGE</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" type = "text/css" href = "{% static 'css/mypage.css' %}">
+
+</head>
+<body>
+    {% block body %}
+    {% include "navbar.html" %}
+
+
+            <div class = "intro_text">
+                <h1>Mypage</h1>
+                <h4>{{ user.username }}님</h4>
+            </div>
+        </div>
+            <!-- intro end -->
+
+        <ul class = "amount">         <!-- ul 태그로 감쌀 때는 굳이 div 사용 안해도 됨. -->
+            <li>
+                <div>
+                    <div class = h4_size>이름</div>
+                    <div class = "h3_size">{{ user.username }}</div>
+                </div>
+            </li>      <!-- alt + shift + 화살표 아래 방향키 : 한줄복사 기능-->
+            <li>
+                <div>
+                    <div class = h4_size>이메일</div>
+                    <div class = "h3_size">{{ user.email }}</div>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <div class = h4_size>이름</div>
+                    <div class = "h3_size">{{ user.username }}</div>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <div class = h4_size>이메일</div>
+                    <div class = "h3_size">{{ user.email }}</div>
+                </div>
+            </li>
+        </ul>
+    </div> <!-- wrap end -->
+
+    {% endblock %}
+</body>
+</html>
+

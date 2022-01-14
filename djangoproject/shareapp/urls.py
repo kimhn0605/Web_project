@@ -5,4 +5,5 @@ from shareapp.views import *
 urlpatterns = [
   
     path('', share, name="share"),
+    
 ]

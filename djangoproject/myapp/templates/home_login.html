@@ -1,4 +1,7 @@
+{% extends "navbar.html" %}
+{% block content %}
 {% load static %}
+
 <!DOCTYPE html>
 <html lang = "ko">
   <head>
@@ -8,24 +11,6 @@
     <link rel = "stylesheet" type = "text/css" href = "{% static 'css/home.css' %}">
   </head>
   <body>
-    <div class = "wrap">
-      <div class = "intro_bg">
-        <div class = "header">
-          <div class = "search_area">
-            <form>
-              <input type="search" placeholder = "Search">
-              <span>검색</span>  <!-- 검색창 바로 옆에 글자 붙이기 (div -> 검색창 아래에 배치)-->
-            </form>
-          </div>
-          <ul class = "nav">
-            <li><a href = "#">HOME</a></li>
-            <li><a href = "#" onclick="location.href='share/'">나눔&중고거래</a></li>
-            <li><a href = "#" onclick="location.href='tips/'">꿀팁</a></li>
-            <li><a href = "#" onclick="location.href='community/'">COMMUNITY</a></li>
-            <li><a href = "#" onclick="location.href='mypage'">{{ myuser }} 님의 MYPAGE</a></li><!--/SignUp 빼고 Login만 씀, login창 가면 signup 버튼 있음-->
-          </ul>
-        </div>  <!-- header end -->
-
         <div class = "intro_text">
           <h1>Homepage</h1>
           <h4>김해나</h4>
@@ -64,3 +49,4 @@
     
   </body>
 </html>
+{% endblock %}
