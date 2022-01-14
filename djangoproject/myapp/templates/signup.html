@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script>
         function popUp() {
-            alert("회원가입이 완료되었습니다.");
+            alert("회원가입이 완료되었습니다."); 
         }
     </script>
     </head>
@@ -38,7 +38,7 @@
                     <form method = "POST" action = ".">  
                     {% csrf_token %} 
     <div class="form-group">
-      <label for="username">사용자 이름</label>
+      <label for="username">사용할 ID</label>
       <input 
       type="text" 
       class="form-control" 
@@ -77,7 +77,7 @@
         placeholder="비밀번호 확인"
         name = "re_password">
     </div>
-    <button type="submit" onclick = "popUp()" class="btn btn-primary">등록</button>
+    <button type="submit" onclick = "popUp()" class="btn btn-primary">등록</button><!--회원가입 실패했을 때도 팝업창 뜸-->
     </form>    
 
 

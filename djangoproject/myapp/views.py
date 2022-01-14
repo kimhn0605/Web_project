@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib import auth
 from .models import Fuser
+
+from django.contrib.auth import get_user_model
 # Create your views here.
 
 def home(request):
@@ -35,7 +37,7 @@ def signup(request):          # 회원가입 페이지를 보여주기str위한H
         email = request.POST.get('email', None)
         password = request.POST.get('password')
         re_password = request.POST.get('re_password')
-        
+
         res_data = {} 
         if password != re_password :
             res_data['error'] = '비밀번호가 다릅니다.'
@@ -66,7 +68,6 @@ def login(request): # 로그인
 
         if not (login_username and login_password):
             response_data = "아이디와 비밀번호를 입력해주세요."
-        #elif(login_username이 db에 없다면): response_data['error'] = "회원가입이 필요합니다." <--을 쓰거나 아니면 그냥 정보 틀렸다고만 나오고, 궁금하면 회원이 알아서 회원가입 하도록?
         else : 
             try :
                 myuser = Fuser.objects.get(username=login_username) 
@@ -86,5 +87,19 @@ def login(request): # 로그인
 
 
 def logout(request):
-    request.session.pop('user')
-    return redirect('/')
+    request.session['username'] = {}
+    request.session.modified = True    
+    #if request.session['user'] : #로그인 중이라면
+    #    del(request.session['user'])
+    #return render(request, 'home.html')
+    return redirect('home')
+
+
+#마이페이지 구현 복붙
+def detail(request, pk):
+    User = get_user_model()
+    user = get_object_or_404(User, pk=pk)
+    context = {
+        'user': user
+    }
+    return render(request, 'mypage.html', context)

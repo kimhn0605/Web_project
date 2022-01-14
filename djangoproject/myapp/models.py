@@ -5,11 +5,12 @@ from django.db import models
 
 class Fuser(models.Model):
     username = models.CharField(max_length=32,
-                                verbose_name='사용자명')#'사용자명'admin 페이지에 보일 컬럼명
+                                verbose_name='ID')#'사용자명'admin 페이지에 보일 컬럼명
     password = models.CharField(max_length=64,
                                 verbose_name='비밀번호')#'비밀번호'admin 페이지에 보일 컬럼명
     email = models.EmailField(max_length=64, null=True,
                               verbose_name="이메일 주소")
+                              
     register_dttm = models.DateField(auto_now_add=True,
                                     verbose_name="가입날짜") #'가입날짜'자동으로 해당시간 추가됨
 
