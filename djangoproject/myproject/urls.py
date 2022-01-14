@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from myapp.views import *
 from django.conf.urls import include
+from mypageapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -21,6 +22,6 @@ urlpatterns = [
     # path('login/community/', community, name="login_comuunity"),
     #path('login/share/', share, name="login_share"),
     
-    #path('login/mypage/', mypage, name="mypage"),
+    path('login/mypage/', mypage, name="mypage"),
 
 ]
